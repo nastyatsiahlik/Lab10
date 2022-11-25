@@ -1,4 +1,4 @@
-import org.openqa.selenium.By;
+/*import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,8 +13,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class MinidinoTest {
-
+public class ZaraTest {
     private static WebDriver driver;
     private WebDriverWait webDriverWait;
 
@@ -29,28 +28,32 @@ public class MinidinoTest {
 
     @Test
     public void findByFullProductNameTest(){
-        driver.get("https://минидино.рф/");
-        String inputName = "Шапка трикотажная ушки фламинго";
+        driver.get("https://www.zara.com/by/ru/");
+        String inputName = "Платье из бархата с вышивкой";
 
-        WebElement searchIcon = driver.findElement(By.className("header-main-menu-search"));
+        WebElement searchIcon = driver.findElement(By.cssSelector("span.layout-header-search-bar__text>span"));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(searchIcon));
         searchIcon.click();
 
-        WebElement searchInput = driver.findElement( By.xpath("/html/body/div[1]/div/header/div[2]/div[5]/div/div[3]/form/label/div/div/div/input"));
+        WebElement searchInput = driver.findElement( By.xpath("//input[@id=\"search-products-form-combo-input\"]"));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(searchInput));
         searchInput.click();
         searchInput.sendKeys(inputName, Keys.ENTER);
 
-        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.category-item-description__title")));
-        WebElement nameOfProduct = driver.findElement(By.cssSelector("div.category-item-description__title"));
+        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a.product-link")));
+        WebElement productLink = driver.findElement(By.cssSelector("a.product-link"));
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(productLink));
+        productLink.click();
 
+        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("h1.product-detail-info__header-name")));
+        WebElement nameOfProduct = driver.findElement(By.cssSelector("h1.product-detail-info__header-name"));
         String productNameOnPage = nameOfProduct.getText();
 
         Assert.assertEquals(productNameOnPage.toLowerCase(), inputName.toLowerCase(), "No such product");
     }
 
-    @AfterTest
-    public void closeBrowser(){
-        driver.quit();
-    }
-}
+   // @AfterTest
+  //  public void closeBrowser(){
+    //    driver.quit();
+    //}
+}*/
