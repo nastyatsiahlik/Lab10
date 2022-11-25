@@ -20,7 +20,7 @@ public class MinidinoTest {
 
     @BeforeTest
     public void browserSetup() {
-        System.setProperty("webdriver.chrome.driver", "D:\\5sem\\Testing\\testing9NewVersion\\src\\test\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\chromeDriver\\chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setBinary("C:\\Users\\tyahl\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe");
         driver = new ChromeDriver(chromeOptions);
