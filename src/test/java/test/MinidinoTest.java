@@ -15,7 +15,7 @@ import java.time.Duration;
 
 public class MinidinoTest {
     public static String inputName = "Шапка трикотажная ушки фламинго";
-    String expectedName = "Юбка Школа серая клетка";
+    public static String expectedName = "Юбка Школа серая клетка";
 
     private WebDriver driver;
 
