@@ -1,4 +1,4 @@
-import org.openqa.selenium.By;
+/*import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,7 +30,7 @@ public class MinidinoTest {
 
     @Test
     public void findByFullProductNameTest(){
-        /*driver.get("https://минидино.рф/");
+        driver.get("https://минидино.рф/");
         String inputName = "Шапка трикотажная ушки фламинго";
 
         WebElement searchIcon = driver.findElement(By.className("header-main-menu-search"));
@@ -47,7 +47,7 @@ public class MinidinoTest {
 
         String productNameOnPage = nameOfProduct.getText();
 
-        Assert.assertEquals(productNameOnPage.toLowerCase(), inputName.toLowerCase(), "No such product");*/
+        Assert.assertEquals(productNameOnPage.toLowerCase(), inputName.toLowerCase(), "No such product");
 
         driver.get("https://минидино.рф/catalog/odezhda/platya_yubki/yubka_shkola_seraya_kletka/?offer_id=51509");
 
@@ -87,4 +87,4 @@ public class MinidinoTest {
    // public void closeBrowser(){
     //    driver.quit();
   //  }
-}
+}*/
