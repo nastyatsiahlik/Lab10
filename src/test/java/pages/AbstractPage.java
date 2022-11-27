@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.time.Duration;
 
 public abstract class AbstractPage {
-    protected final Duration wait = Duration.ofSeconds(10);
+    protected final Duration wait = Duration.ofSeconds(20);
     protected WebDriver driver;
 
     protected abstract AbstractPage openPage();

@@ -24,12 +24,13 @@ public class MinidinoTest {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setBinary("C:\\Users\\tyahl\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe");
         driver = new ChromeDriver(chromeOptions);
-        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        driver.manage().window().maximize();
     }
 
     @Test
     public void findByFullProductNameTest(){
-        driver.get("https://минидино.рф/");
+        /*driver.get("https://минидино.рф/");
         String inputName = "Шапка трикотажная ушки фламинго";
 
         WebElement searchIcon = driver.findElement(By.className("header-main-menu-search"));
@@ -46,11 +47,44 @@ public class MinidinoTest {
 
         String productNameOnPage = nameOfProduct.getText();
 
-        Assert.assertEquals(productNameOnPage.toLowerCase(), inputName.toLowerCase(), "No such product");
+        Assert.assertEquals(productNameOnPage.toLowerCase(), inputName.toLowerCase(), "No such product");*/
+
+        driver.get("https://минидино.рф/catalog/odezhda/platya_yubki/yubka_shkola_seraya_kletka/?offer_id=51509");
+
+        String expectedName = "Юбка Школа серая клетка";
+        String expectedColor = "серая клетка";
+        String expectedSize = "134";
+        String expectedPrice = "999";
+
+        //div.product-detail-icons__favorites
+        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.product-detail-icons__favorites")));
+        WebElement iconAddToHighlights = driver.findElement(By.cssSelector("div.product-detail-icons__favorites"));
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(iconAddToHighlights));
+
+        iconAddToHighlights.click();
+
+        //div.header-main-menu-item__icon--favorites
+        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.header-main-menu-item__icon--favorites")));
+        WebElement highlightsIcon = driver.findElement(By.cssSelector("div.header-main-menu-item__icon--favorites"));
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(highlightsIcon));
+
+        highlightsIcon.click();
+
+        //div.category-item-description__title
+        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.category-item-description__title")));
+        WebElement nameOfProductInHighLights = driver.findElement(By.cssSelector("div.category-item-description__title"));
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(nameOfProductInHighLights));
+
+        String nameOfProductInHighLightsText = nameOfProductInHighLights.getText();
+
+        Assert.assertEquals(expectedName, nameOfProductInHighLightsText);
+
+
+
     }
 
-    @AfterTest
-    public void closeBrowser(){
-        driver.quit();
-    }
+   // @AfterTest
+   // public void closeBrowser(){
+    //    driver.quit();
+  //  }
 }
