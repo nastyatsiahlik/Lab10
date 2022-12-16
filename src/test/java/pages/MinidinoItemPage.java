@@ -30,6 +30,8 @@ public class MinidinoItemPage extends AbstractPage{
     }
 
     public MinidinoHighlightsPage addProductToHighlights() {
+        new WebDriverWait(driver, wait)
+                .until(ExpectedConditions.elementToBeClickable(iconAddToHighlights));
         iconAddToHighlights.click();
         new WebDriverWait(driver, wait)
                 .until(ExpectedConditions.elementToBeClickable(highlightsIcon));

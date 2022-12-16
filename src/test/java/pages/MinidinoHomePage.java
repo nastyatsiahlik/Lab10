@@ -34,6 +34,8 @@ public class MinidinoHomePage extends AbstractPage{
                 .until(ExpectedConditions.elementToBeClickable(searchIcon));
         searchIcon.click();
         new WebDriverWait(driver, wait)
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='header-main-menu-list']//input[@type = 'search']")));
+        new WebDriverWait(driver, wait)
                 .until(ExpectedConditions.elementToBeClickable(searchInput));
         searchInput.sendKeys(inputName, Keys.ENTER);
         return new MinidinoSearchResultPage(driver);
