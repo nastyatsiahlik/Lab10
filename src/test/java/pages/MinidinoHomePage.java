@@ -15,7 +15,8 @@ public class MinidinoHomePage extends AbstractPage{
     @FindBy(className = "header-main-menu-search")
     private WebElement searchIcon;
 
-    @FindBy(xpath = "//div[@class='header-main-menu-list']//input[@type = \"search\"]")
+    //@FindBy(xpath = "//div[@class='header-main-menu-list']//input[@type = \"search\"]")
+    @FindBy(xpath = "/html/body/div[1]/div/header/div[2]/div[5]/div/div[3]/form/label/div/div/div/input")
     private WebElement searchInput;
 
     public MinidinoHomePage(WebDriver driver) {
@@ -34,7 +35,7 @@ public class MinidinoHomePage extends AbstractPage{
                 .until(ExpectedConditions.elementToBeClickable(searchIcon));
         searchIcon.click();
         new WebDriverWait(driver, wait)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='header-main-menu-list']//input[@type = \"search\"]")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//html/body/div[1]/div/header/div[2]/div[5]/div/div[3]/form/label/div/div/div/input")));
         new WebDriverWait(driver, wait)
                 .until(ExpectedConditions.elementToBeClickable(searchInput));
         searchInput.sendKeys(inputName, Keys.ENTER);
