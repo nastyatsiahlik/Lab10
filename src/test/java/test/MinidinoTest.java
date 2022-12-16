@@ -21,7 +21,7 @@ public class MinidinoTest {
 
     @BeforeTest
     public void browserSetup() {
-        System.setProperty("webdriver.chrome.driver", "D:\\chromeDriver\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "D:\\chromeDriver\\chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setBinary("C:\\Users\\tyahl\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe");
         driver = new ChromeDriver(chromeOptions);
@@ -46,8 +46,8 @@ public class MinidinoTest {
         Assert.assertEquals(expectedName, nameOfProductInHighlights, "Highlights does not work correct");
     }
 
-    @AfterTest
+   /* @AfterTest
     public void closeBrowser() {
         driver.quit();
-    }
+    }*/
 }
