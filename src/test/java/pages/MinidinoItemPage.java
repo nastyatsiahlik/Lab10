@@ -24,17 +24,14 @@ public class MinidinoItemPage extends AbstractPage{
 
     public MinidinoItemPage openItemPage() {
         driver.get(MINIDINO_ITEM_PAGE_URL);
-        new WebDriverWait(driver, wait)
-                .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.product-detail-icons__favorites")));
+        waitForPresenceOfElementLocatedBy(driver, By.cssSelector("div.product-detail-icons__favorites"));
         return this;
     }
 
     public MinidinoHighlightsPage addProductToHighlights() {
-        new WebDriverWait(driver, wait)
-                .until(ExpectedConditions.elementToBeClickable(iconAddToHighlights));
+        waitForElementToBeClickable(driver, iconAddToHighlights);
         iconAddToHighlights.click();
-        new WebDriverWait(driver, wait)
-                .until(ExpectedConditions.elementToBeClickable(highlightsIcon));
+        waitForElementToBeClickable(driver, highlightsIcon);
         highlightsIcon.click();
 
         return new MinidinoHighlightsPage(driver);

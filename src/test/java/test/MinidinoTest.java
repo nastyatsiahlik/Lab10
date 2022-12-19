@@ -1,9 +1,7 @@
 package test;
 
+import driver.DriverSingleton;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -11,7 +9,6 @@ import org.testng.annotations.Test;
 import pages.MinidinoHomePage;
 import pages.MinidinoItemPage;
 
-import java.time.Duration;
 
 public class MinidinoTest {
     public static String inputName = "Шапка трикотажная ушки фламинго";
@@ -21,11 +18,7 @@ public class MinidinoTest {
 
     @BeforeTest
     public void browserSetup() {
-        //System.setProperty("webdriver.chrome.driver", "D:\\chromeDriver\\chromedriver.exe");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("C:\\Users\\tyahl\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe");
-        driver = new ChromeDriver(chromeOptions);
-        driver.manage().window().maximize();
+            driver = DriverSingleton.getDriver();
     }
 
     @Test
@@ -46,8 +39,8 @@ public class MinidinoTest {
         Assert.assertEquals(expectedName, nameOfProductInHighlights, "Highlights does not work correct");
     }
 
-   /* @AfterTest
+    @AfterTest
     public void closeBrowser() {
         driver.quit();
-    }*/
+    }
 }

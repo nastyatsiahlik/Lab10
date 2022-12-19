@@ -18,8 +18,7 @@ public class MinidinoHighlightsPage extends AbstractPage{
     }
 
     public String getTextOfNameOfProductInHighlights() {
-        new WebDriverWait(driver, wait)
-                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("div.category-item-description__title")));
+        waitForPresenceOfElementLocatedBy(driver, By.cssSelector("div.category-item-description__title"));
         return nameOfProductInHighlights.getText();
     }
 
