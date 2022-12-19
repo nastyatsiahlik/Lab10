@@ -25,8 +25,7 @@ public class MinidinoHomePage extends AbstractPage{
 
     public MinidinoHomePage openPage() {
         driver.get(MINIDINO_HOME_PAGE_URL);
-        new WebDriverWait(driver, wait)
-                .until(ExpectedConditions.presenceOfElementLocated(By.className("header-main-menu-search")));
+        waitForPresenceOfElementLocatedBy(driver, (By.className("header-main-menu-search")));
         return this;
     }
 
